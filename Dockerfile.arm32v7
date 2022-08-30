@@ -1,0 +1,1 @@
+FROM --platform=linux/arm64 messense/rust-musl-cross:armv7-musleabihf
