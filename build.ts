@@ -18,8 +18,8 @@ const ARCHS = [
     finalName: `${IMAGE_NAME}:latest-arm64`,
   },
   {
-    name: "arm32v7",
-    finalName: `${IMAGE_NAME}:latest-arm32v7`,
+    name: "arm32",
+    finalName: `${IMAGE_NAME}:latest-arm32`,
   },
 ];
 
