@@ -34,6 +34,11 @@ const USER_ARCHS = [
     buildName: buildArm64Name,
     platform: "linux/arm64",
   },
+  {
+    name: "arm64",
+    buildName: buildArmv7Name,
+    platform: "linux/arm/v7",
+  },
 ];
 
 async function main() {
@@ -41,10 +46,8 @@ async function main() {
     console.log(`BUILD ${arch.name}`);
     for (const userArch of USER_ARCHS) {
       await $(
-        `docker buildx build --push --platform ${
-          userArch.platform
-        } -t ${userArch.buildName(arch)} -f Dockerfile.${arch.name}-${
-          userArch.name
+        `docker buildx build --push --platform ${userArch.platform
+        } -t ${userArch.buildName(arch)} -f Dockerfile.${arch.name}-${userArch.name
         } .`
       );
     }
@@ -78,6 +81,10 @@ function buildArm64Name(arch: { name: string }) {
 
 function buildAmd64Name(arch: { name: string }) {
   return `${IMAGE_NAME}:build-${arch.name}-from-amd64`;
+}
+
+function buildArmv7Name(arch: { name: string }) {
+  return `${IMAGE_NAME}:build-${arch.name}-from-armv7`;
 }
 
 async function $(cmd: string) {
