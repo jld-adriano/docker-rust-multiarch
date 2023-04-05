@@ -66,7 +66,7 @@ async function main() {
 
     for (const userArch of USER_ARCHS) {
       await $(`docker manifest annotate ${arch.finalName} \\
-        ${userArch.buildName(arch)} --os linux --arch ${userArch.name}
+        ${userArch.buildName(arch)} --os linux --arch ${userArch.name === "armv7" ? "arm" : userArch.name} ${userArch.name === "--variant armv7" ? "v7" : ""}
       `);
     }
     await $(`docker manifest push ${arch.finalName}`);
