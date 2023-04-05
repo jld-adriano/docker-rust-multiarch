@@ -25,8 +25,8 @@ const ARCHS = [
 
 const USER_ARCHS = [
   {
-    buildName: buildAmd64Name,
     name: "amd64",
+    buildName: buildAmd64Name,
     platform: "linux/amd64",
   },
   {
@@ -35,7 +35,7 @@ const USER_ARCHS = [
     platform: "linux/arm64",
   },
   {
-    name: "arm64",
+    name: "armv7",
     buildName: buildArmv7Name,
     platform: "linux/arm/v7",
   },
